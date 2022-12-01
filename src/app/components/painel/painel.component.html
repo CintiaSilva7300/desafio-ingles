@@ -1,0 +1,41 @@
+
+<div class="container">
+  <div class="jumbotron">
+    <div class="row">
+      <div class="col-sm-6">
+        <app-progresso></app-progresso>
+
+      </div>
+      <div class="col-sm-6">
+        <div class="d-flex justify-content-end">
+          <app-tentativas></app-tentativas>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <h6 class="instrucao">{{instrucao}}</h6>
+        <p class="fraseIngles">{{frases[0].fraseIgles}}</p>
+
+        <div class="form-floating">
+          <textarea
+            class="form-control"
+            placeholder="Leave a comment here"
+            style="height: 150px"
+            (input)="atualizaResposta($event)"
+          ></textarea>
+          <label for="floatingTextarea2">resposta:</label>
+        </div>
+      </div>
+
+     <div class="row">
+      <div class="col">
+        <div class="d-flex justify-content-end mt-3">
+          <button type="button" class="btn btn-dark">Enviar sua resposta</button>
+        </div>
+      </div>
+     </div>
+    </div>
+  </div>
+</div>
