@@ -11,15 +11,15 @@ import { FRASES } from './frases-mock';
 export class PainelComponent implements OnInit {
   public frases: Frase[] = FRASES
   public instrucao: string = 'Traduza a frase:'
-  public resposta!: string;
+  public resposta: string = '';
 
   public rodada: number = 0;
   public rodadaFrase!: Frase;
 
+  public progresso: number = 0;
+
   constructor() {
-    //console.log(this.frases) //objeto frase
-    this.rodadaFrase = this.frases[this.rodada]
-    // console.log(this.rodadaFrase)
+    this.atualizaRodada();
   }
 
   ngOnInit(): void {
@@ -32,20 +32,23 @@ export class PainelComponent implements OnInit {
   }
 
   verificarResposta(): void { //trocar pergunta da rodada
-
     if (this.rodadaFrase.frasePortugues === this.resposta) {
       alert('Correta')
 
-      this.rodada++
+      this.rodada++;
 
-      //ATUALIZA O OBJETO RODADAFRASE
-      console.log(this.rodada)
+      this.atualizaRodada();
+
       this.rodadaFrase = this.frases[this.rodada]
-      // console.log(this.rodadaFrase)
 
     } else (
       alert('Errada')
     )
+  }
+
+  atualizaRodada(): void {
+    this.rodadaFrase = this.frases[this.rodada]
+    this.resposta = '';
   }
 
 }
