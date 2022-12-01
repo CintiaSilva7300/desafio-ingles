@@ -16,7 +16,7 @@
     <div class="row">
       <div class="col">
         <h6 class="instrucao">{{instrucao}}</h6>
-        <p class="fraseIngles">{{frases[0].fraseIgles}}</p>
+        <p class="fraseIngles">{{ rodadaFrase.fraseIgles }}</p>
 
         <div class="form-floating">
           <textarea
@@ -32,7 +32,11 @@
      <div class="row">
       <div class="col">
         <div class="d-flex justify-content-end mt-3">
-          <button type="button" class="btn btn-dark">Enviar sua resposta</button>
+          <button
+            type="button"
+            class="btn btn-dark"
+            (click)="verificarResposta()"
+          >Enviar sua resposta</button>
         </div>
       </div>
      </div>
