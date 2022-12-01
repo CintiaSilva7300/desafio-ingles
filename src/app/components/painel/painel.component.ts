@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Frase } from 'src/app/shared/frase.model';
 import { FRASES } from './frases-mock';
 
-
 @Component({
   selector: 'app-painel',
   templateUrl: './painel.component.html',
@@ -18,32 +17,37 @@ export class PainelComponent implements OnInit {
 
   public progresso: number = 0;
 
+  public tentativas: number = 3;
+
   constructor() {
     this.atualizaRodada();
   }
 
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {  }
 
   atualizaResposta(resposta: Event): void {
     this.resposta = (<HTMLInputElement>resposta.target).value
-    // console.log(this.resposta)
   }
 
-  verificarResposta(): void { //trocar pergunta da rodada
-    if (this.rodadaFrase.frasePortugues === this.resposta) {
+  verificarResposta(): void {
+    console.log(this.tentativas)
+    if (this.rodadaFrase.frasePortugues == this.resposta) {
       alert('Correta')
 
       this.rodada++;
 
+      this.progresso = this.progresso + (100 / this.frases.length)
+
       this.atualizaRodada();
 
-      this.rodadaFrase = this.frases[this.rodada]
+    } else {
+      this.tentativas--
 
-    } else (
-      alert('Errada')
-    )
+      if(this.tentativas === -1){
+        alert('vc perde todas as vidas')
+      }
+    }
+    console.log(this.tentativas)
   }
 
   atualizaRodada(): void {
