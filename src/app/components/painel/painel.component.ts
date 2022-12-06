@@ -28,7 +28,6 @@ export class PainelComponent implements OnInit, OnDestroy {
   ngOnInit(): void {  }
 
   ngOnDestroy(): void {
-    // console.log('componente painel destruido')
   }
 
   atualizaResposta(resposta: Event): void {
@@ -37,7 +36,6 @@ export class PainelComponent implements OnInit, OnDestroy {
 
   verificarResposta(): void {
     if (this.rodadaFrase.frasePortugues == this.resposta) {
-      alert('Correta')
 
       this.rodada++;
 
